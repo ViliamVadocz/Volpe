@@ -21,13 +21,13 @@
 item: CNAME ":" _SEP* value2 -> item
 
 ?value2: value3
-    | value2 "->" value3 -> implication
+    | value2 "->" _SEP* value3 -> implication
 
 ?value3: value4
-    | value3 "||" value4 -> logic_or
+    | value3 "||" _SEP* value4 -> logic_or
 
 ?value4: value5
-    | value4 "&&" value5 -> logic_and
+    | value4 "&&" _SEP* value5 -> logic_and
 
 ?value5: value6
     | value5 "=" value6 -> equals
