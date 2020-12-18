@@ -15,7 +15,7 @@ def volpe_from_c(c_type: clang.cindex.Type) -> Union[ir.Type, VolpeType]:
         return VolpePointer(volpe_from_c(c_type.get_pointee()))
     if c_type.kind == clang.cindex.TypeKind.CHAR_S or c_type.kind == clang.cindex.TypeKind.CHAR_U:
         return char
-    if c_type.kind == clang.cindex.TypeKind.INT or c_type.kind == clang.cindex.TypeKind.UINT:
+    if c_type.kind == clang.cindex.TypeKind.INT or c_type.kind == clang.cindex.TypeKind.UINT or c_type.kind == clang.cindex.TypeKind.LONG:
         return int64
     if c_type.kind == clang.cindex.TypeKind.DOUBLE:
         return flt64
